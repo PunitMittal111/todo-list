@@ -99,7 +99,7 @@ const Todo = () => {
                 <span>{index + 1}. &nbsp;</span>
                 {editingId === task.id ? (
                   <input
-                    className="  text-black-400 px-0.1 py-1 rounded-md my-2 mx-1.5"
+                    className="  text-black-400 px-0.1 py-2 rounded-md my-2 mx-1.5"
                     type="text"
                     value={editValue}
                     onChange={(e) => setEditValue(e.target.value)}
@@ -111,7 +111,9 @@ const Todo = () => {
               <div className="flex justify-center items-center gap-3 hover:cursor-pointer ">
                 <button
                   className={`border ${
-                    task.completed ? "bg-green-600" : "bg-gray-800"
+                    task.completed
+                      ? "bg-green-500 hover:bg-green-700"
+                      : "bg-gray-700 hover:bg-gray-800"
                   } text-white rounded-md border-gray-200 px-2 py-1.5 text-xl active:opacity-40`}
                   onClick={() => toggleTask(task.id)}
                 >
