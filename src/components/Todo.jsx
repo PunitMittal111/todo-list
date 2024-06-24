@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { MdDelete } from "react-icons/md";
 import { TbEdit } from "react-icons/tb";
+import { FaSave } from "react-icons/fa";
 
 const Todo = () => {
   const [data, setData] = useState([]);
@@ -71,7 +72,7 @@ const Todo = () => {
       <div className="text-center bg-gray-800 ">
         <h1 className="text-4xl text-gray-400">Todo list</h1>
         <input
-          className="  text-red-400 px-4 py-3 rounded-md my-2 mx-1.5"
+          className="  text-black-400 px-4 py-3 rounded-md my-2 mx-1.5"
           type="text"
           onChange={InputChange}
           placeholder="Name"
@@ -98,6 +99,7 @@ const Todo = () => {
                 <span>{index + 1}. &nbsp;</span>
                 {editingId === task.id ? (
                   <input
+                    className="  text-black-400 px-0.1 py-1 rounded-md my-2 mx-1.5"
                     type="text"
                     value={editValue}
                     onChange={(e) => setEditValue(e.target.value)}
@@ -116,12 +118,10 @@ const Todo = () => {
                   {task.completed ? "Completed" : "Not Completed"}
                 </button>
                 {editingId === task.id ? (
-                  <button
+                  <FaSave
                     className="text-red-800 text-2xl active:opacity-40"
                     onClick={() => saveEdit(task.id)}
-                  >
-                    Save
-                  </button>
+                  />
                 ) : (
                   <TbEdit
                     className="text-red-800 text-2xl active:opacity-40"
